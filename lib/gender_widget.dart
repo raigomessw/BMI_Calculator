@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_3d_choice_chip/flutter_3d_choice_chip.dart';
 
 class GenderWidget extends StatefulWidget {
-  final Function(int) onChange = onChange;
+  final Function(int) onChange;
 
   const GenderWidget({Key? key, required this.onChange}) : super(key: key);
 
@@ -14,7 +14,7 @@ class _GenderWidgetState extends State<GenderWidget> {
   int _gender = 0;
 
   final ChoiceChip3DStyle selectedStyle = ChoiceChip3DStyle(
-      topColor: Color.fromARGB(255, 111, 197, 114)!,
+      topColor: Color.fromARGB(255, 111, 197, 114),
       backColor: Colors.grey,
       borderRadius: BorderRadius.circular(20));
 
