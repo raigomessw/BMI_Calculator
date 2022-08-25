@@ -47,8 +47,10 @@ class ScoreScreen extends StatelessWidget {
                         GaugeSegment('UnderWeight', 18.5, Colors.red),
                         GaugeSegment('Normal', 6.4, Colors.green),
                         GaugeSegment('OverWeigh', 5, Colors.orange),
-                        GaugeSegment('Obese', 4.9, Color.fromARGB(255, 255, 217, 1)),
-                        GaugeSegment('ExtObese', 15.2, Color.fromARGB(255, 0, 192, 250)),
+                        GaugeSegment(
+                            'Obese', 4.9, Color.fromARGB(255, 255, 217, 1)),
+                        GaugeSegment(
+                            'ExtObese', 15.2, Color.fromARGB(255, 0, 192, 250)),
                       ],
                       valueWidget: Text(
                         bmiScore.toStringAsFixed(1),
@@ -91,6 +93,14 @@ class ScoreScreen extends StatelessWidget {
                                   "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
                             },
                             child: const Text("Share")),
+                       /* Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: RaisedButton(
+                              child: Text("Save"),
+                              onPressed: () {
+                                // _save();
+                              },
+                            )),*/
                       ],
                     )
                   ]))),
@@ -98,7 +108,7 @@ class ScoreScreen extends StatelessWidget {
   }
 
   void setBmiInterpretation() {
-    if (bmiScore >= 30 ) {
+    if (bmiScore >= 30) {
       bmiStatus = "Obese";
       bmiInterpretation = "Please work to reduce obesity";
       bmiStatusColor = Color.fromARGB(255, 255, 217, 1);
@@ -114,10 +124,18 @@ class ScoreScreen extends StatelessWidget {
       bmiStatus = "Underweight";
       bmiInterpretation = "Try to increase the weight";
       bmiStatusColor = Colors.red;
-    } if (bmiScore > 35) {
+    }
+    if (bmiScore > 35) {
       bmiStatus = "ExtremeWeight";
-      bmiInterpretation = "Do regular exercise, reduce the weight & go on a diet";
+      bmiInterpretation =
+          "Do regular exercise, reduce the weight & go on a diet";
       bmiStatusColor = Color.fromARGB(255, 0, 192, 250);
     }
   }
+  /* void _save() async {
+        final prefs = await bmiScore.toStringAsFixed(1);
+        const key = 'my_int_key';
+        final value = bmiScore;
+        print('saved $value');
+      }*/
 }
