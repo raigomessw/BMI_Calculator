@@ -74,7 +74,7 @@ class _GenderWidgetState extends State<GenderWidget> {
                   const SizedBox(
                     height: 5,
                   ),
-                  const Text("Woman")
+                  const Text("Female")
                 ],
               ))
         ],
