@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pretty_gauge/pretty_gauge.dart';
 import 'package:share_plus/share_plus.dart';
@@ -18,6 +19,7 @@ class ScoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
     setBmiInterpretation();
     return Scaffold(
       appBar: AppBar(
@@ -79,7 +81,13 @@ class ScoreScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ElevatedButton(
+                        isIOS 
+                        ? CupertinoButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text("Re-calculate"))
+                            : ElevatedButton(
                             onPressed: () {
                               Navigator.pop(context);
                             },
@@ -87,6 +95,10 @@ class ScoreScreen extends StatelessWidget {
                         const SizedBox(
                           width: 10,
                         ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+  
                         ElevatedButton(
                             onPressed: () {
                               Share.share(
