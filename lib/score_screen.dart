@@ -19,7 +19,7 @@ class ScoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
+    bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
     setBmiInterpretation();
     return Scaffold(
       appBar: AppBar(
@@ -81,31 +81,37 @@ class ScoreScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        isIOS 
+                        isIOS
+                            ? CupertinoButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text("Re-calculate-IOS"))
+                            : ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text("Re-calculate-Android")),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        isIOS
                         ? CupertinoButton(
                             onPressed: () {
-                              Navigator.pop(context);
+                              Share.share(
+                                  "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
                             },
-                            child: const Text("Re-calculate-IOS"))
-                            : ElevatedButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text("Re-calculate-Android")),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-  
+                            child: const Text("Share-ios")):
                         ElevatedButton(
                             onPressed: () {
                               Share.share(
                                   "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
                             },
-                            child: const Text("Share")),
-                       /* Padding(
+                            child: const Text("Share-andoid")),
+                        /* Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: RaisedButton(
                               child: Text("Save"),
