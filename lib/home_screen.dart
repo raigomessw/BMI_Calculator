@@ -82,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: ScoreScreen(
                                     bmiScore: _bmiScore,
                                     age: _age,
+                
                                   ),
                                   type: PageTransitionType.fade));
                           setState(() {

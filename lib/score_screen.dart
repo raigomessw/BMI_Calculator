@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pretty_gauge/pretty_gauge.dart';
 import 'package:share_plus/share_plus.dart';
 
+
 class ScoreScreen extends StatelessWidget {
   final double bmiScore;
 
@@ -14,7 +15,10 @@ class ScoreScreen extends StatelessWidget {
 
   Color? bmiStatusColor;
 
-  ScoreScreen({Key? key, required this.bmiScore, required this.age})
+  ScoreScreen(
+      {Key? key,
+      required this.bmiScore,
+      required this.age,})
       : super(key: key);
 
   @override
@@ -89,7 +93,8 @@ class ScoreScreen extends StatelessWidget {
                                 color: Colors.blue,
                                 pressedOpacity: 0.8,
                                 borderRadius: BorderRadius.circular(50),
-                                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10.0, horizontal: 20.0),
                                 child: const Text("Re-calculate-IOS"))
                             : ElevatedButton(
                                 onPressed: () {
@@ -103,31 +108,24 @@ class ScoreScreen extends StatelessWidget {
                           width: 10,
                         ),
                         isIOS
-                        ? CupertinoButton(
-                            onPressed: () {
-                              Share.share(
-                                  "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
-                            },
-                            color: Colors.blue,
-                            pressedOpacity: 0.8,
-                            borderRadius: BorderRadius.circular(50),
-                            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                          
-                            child: const Text("Share-ios")):
-                        ElevatedButton(
-                            onPressed: () {
-                              Share.share(
-                                  "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
-                            },
-                            child: const Text("Share-andoid")),
-                        /* Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: RaisedButton(
-                              child: Text("Save"),
-                              onPressed: () {
-                                // _save();
-                              },
-                            )),*/
+                            ? CupertinoButton(
+                                onPressed: () {
+                                  Share.share(
+                                      "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
+                                },
+                                color: Colors.blue,
+                                pressedOpacity: 0.8,
+                                borderRadius: BorderRadius.circular(50),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10.0, horizontal: 20.0),
+                                child: const Text("Share-ios"))
+                            : ElevatedButton(
+                                onPressed: () {
+                                  Share.share(
+                                      "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
+                                },
+                                child: const Text("Share-andoid")),
+                      
                       ],
                     )
                   ]))),
@@ -159,10 +157,4 @@ class ScoreScreen extends StatelessWidget {
       bmiStatusColor = Color.fromARGB(255, 0, 192, 250);
     }
   }
-  /* void _save() async {
-        final prefs = await bmiScore.toStringAsFixed(1);
-        const key = 'my_int_key';
-        final value = bmiScore;
-        print('saved $value');
-      }*/
 }
