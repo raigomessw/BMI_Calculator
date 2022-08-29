@@ -86,6 +86,10 @@ class ScoreScreen extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
+                                color: Colors.blue,
+                                pressedOpacity: 0.8,
+                                borderRadius: BorderRadius.circular(50),
+                                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                                 child: const Text("Re-calculate-IOS"))
                             : ElevatedButton(
                                 onPressed: () {
@@ -104,6 +108,11 @@ class ScoreScreen extends StatelessWidget {
                               Share.share(
                                   "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
                             },
+                            color: Colors.blue,
+                            pressedOpacity: 0.8,
+                            borderRadius: BorderRadius.circular(50),
+                            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                          
                             child: const Text("Share-ios")):
                         ElevatedButton(
                             onPressed: () {
