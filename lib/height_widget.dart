@@ -20,14 +20,14 @@ class _HeightWidgetState extends State<HeightWidget> {
           shape: const RoundedRectangleBorder(),
           child: Column(
             children: [
-              const Text(
+              const Text  (
                 "Height",
                 style: TextStyle(fontSize: 25, color: Colors.grey),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Row(
+              Row(                                    
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -41,7 +41,7 @@ class _HeightWidgetState extends State<HeightWidget> {
                   ),
                 ],
               ),
-              Slider(
+              Slider.adaptive(
                 min: 0,
                 max: 240,
                 value: _height.toDouble(),
