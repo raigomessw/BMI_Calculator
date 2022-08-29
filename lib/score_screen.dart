@@ -86,12 +86,12 @@ class ScoreScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: const Text("Re-calculate"))
+                            child: const Text("Re-calculate-IOS"))
                             : ElevatedButton(
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: const Text("Re-calculate")),
+                            child: const Text("Re-calculate-Android")),
                         const SizedBox(
                           width: 10,
                         ),
