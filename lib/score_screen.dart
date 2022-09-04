@@ -25,7 +25,13 @@ class ScoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
     setBmiInterpretation();
-    return Scaffold(
+    return
+     isIOS ?
+       CupertinoPageScaffold(
+        child: AppBar(
+          centerTitle: true,
+          title: const Text("BMI Score"),
+         )): Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const Text("BMI Score"),
