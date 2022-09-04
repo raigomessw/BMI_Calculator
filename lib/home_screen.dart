@@ -1,10 +1,10 @@
 import 'dart:math';
-
 import 'package:bmi_calculator_app/age_weight_widget.dart';
 import 'package:bmi_calculator_app/gender_widget.dart';
 import 'package:bmi_calculator_app/height_widget.dart';
 import 'package:bmi_calculator_app/score_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:swipeable_button_view/swipeable_button_view.dart';
 
@@ -26,12 +26,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
-    return Scaffold(
+    return
+     isIOS ?
+       CupertinoPageScaffold(
+        child: AppBar(
+          centerTitle: true,
+          title: const Text("BMI Calculator"),
+         )):
+        Scaffold(
         appBar: AppBar(
           centerTitle: true,
           title: const Text("BMI Calculator"),
-        ),
-        body: SingleChildScrollView(
+         ),
+         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(12),
             child: Card(
@@ -45,8 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       _gender = genderVal;
                     },
                   ),
-                  HeightWidget(
-                    onChange: (heightVal) {
+                  HeightWidget(onChange: (heightVal) {
                     _height = heightVal;
                   }),
                   Row(
@@ -82,7 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: ScoreScreen(
                                     bmiScore: _bmiScore,
                                     age: _age,
-                
                                   ),
                                   type: PageTransitionType.fade));
                           setState(() {
@@ -110,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ));
+        
   }
 
   void calculateBmi() {
