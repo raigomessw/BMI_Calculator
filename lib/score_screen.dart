@@ -124,13 +124,13 @@ class ScoreScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(50),
                                 padding: EdgeInsets.symmetric(
                                     vertical: 10.0, horizontal: 20.0),
-                                child: const Text("Share-ios"))
+                                child: const Text("Share-Ios"))
                             : ElevatedButton(
                                 onPressed: () {
                                   Share.share(
                                       "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
                                 },
-                                child: const Text("Share-andoid")),
+                                child: const Text("Share-Android")),
                       
                       ],
                     )
